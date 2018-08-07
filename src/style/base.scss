@@ -28,7 +28,13 @@ button {
 .el-menu {
   border-right: 0!important;
 }
-.el-menu-item.is-active {
-  background-color:#409eff!important;
+
+.el-menu-item-group__title {
+  padding:0;
+}
+
+.el-menu-item {
+  height: 40px;
+  line-height: 40px;
 }
 

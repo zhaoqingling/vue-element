@@ -1,7 +1,7 @@
 <template>
  <div>
    <p>首页</p>
-   <p><span>store里的原数据</span>:{{num}}</p>
+   <p><span>sale 里的store数据</span>:{{num}}</p>
    <el-row>
     <el-button type="primary" size="small" @click="testDemo">点我改store</el-button>
    </el-row>
@@ -16,10 +16,10 @@ import { mapMutations,mapGetters, mapState} from 'vuex'
     }
   },
   methods:{
-    ...mapMutations({
-        add:'add',
-        reduce: 'reduce'
-    }),
+    // ...mapMutations({
+    //     add:'add',
+    //     reduce: 'reduce'
+    // }),
     ...mapMutations('sale',{
         addCounts:'add'
     }),
