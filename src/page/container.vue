@@ -62,14 +62,14 @@
       text-color="#fff"
       active-text-color="#409EFF"
       :unique-opened="unique">
-      <el-submenu index="1">
+      <!-- <el-submenu index="">
         <template slot="title">
           <i class="el-icon-location"></i>
           <span slot="title">导航一</span>
         </template>
         <el-menu-item-group>
           <el-menu-item index="/">选项1</el-menu-item>
-
+          <el-menu-item index="">选项2</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-menu-item index="/sale">
@@ -79,7 +79,24 @@
       <el-menu-item index="/manage">
         <i class="el-icon-setting"></i>
         <span slot="title">导航四</span>
-      </el-menu-item>
+      </el-menu-item> -->
+      <template v-for="(item,index) in menuData">
+        <el-menu-item v-if="!item.children" :index="item.path">
+          <i class="el-icon-setting"></i>
+          <span slot="title">{{item.name}}</span>
+        </el-menu-item>
+        <el-submenu index="" v-else>
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span slot="title">{{item.name}}</span>
+          </template>
+          <el-menu-item-group>
+            <template v-for="(items,index) in item.children">
+              <el-menu-item :index="items.path">{{items.name}}</el-menu-item>
+            </template>
+          </el-menu-item-group>
+        </el-submenu>
+      </template>
     </el-menu>
   </div>
   <!-- 路由跳转 -->
@@ -101,39 +118,21 @@
       menuData:[
         {
           name:'导航一',
+          path: '',
           children:[
             {
-              name:'选项1'
-            },
-            {
-              name:'选项2'
-            },
-            {
-              name:'选项3',
-              children:[
-                {
-                  name:'选项1'
-                }
-              ]
+              name:'选项1',
+              path: '/'
             }
           ]
         },
         {
-          name:'导航二'
+          name:'导航二',
+          path: '/sale'
         },
         {
-          name:'导航四'
-        },
-        {
-          name:'导航五',
-          children:[
-            {
-              name:'选项1'
-            },
-            {
-              name:'选项2'
-            }
-          ]
+          name:'导航四',
+          path: '/manage'
         }
       ]
     }
