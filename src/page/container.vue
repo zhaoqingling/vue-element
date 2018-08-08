@@ -134,6 +134,10 @@
         {
           name:'导航四',
           path: '/manage'
+        },
+        {
+          name: 'demo',
+          path: '/demo'
         }
       ]
     }
