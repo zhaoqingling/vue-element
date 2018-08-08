@@ -61,7 +61,8 @@
       background-color="#20222a"
       text-color="#fff"
       active-text-color="#409EFF"
-      :unique-opened="unique">
+      :unique-opened="unique"
+      >
       <!-- <el-submenu index="">
         <template slot="title">
           <i class="el-icon-location"></i>
@@ -85,7 +86,7 @@
           <i class="el-icon-setting"></i>
           <span slot="title">{{item.name}}</span>
         </el-menu-item>
-        <el-submenu index="" v-else>
+        <el-submenu :index="`${index}`" v-else>
           <template slot="title">
             <i class="el-icon-location"></i>
             <span slot="title">{{item.name}}</span>
