@@ -33,6 +33,9 @@
     <div>
       <p>list的长度{{lengths}}</p>
     </div>
+    <div>
+      {{info}}
+    </div>
   </div>
 </template>
 <script>
@@ -40,6 +43,7 @@
   export default {
     data(){
       return {
+        info: this.$route.query,
         demoId: 'temp-id',
         show: {
           showFir: true,
@@ -82,7 +86,7 @@
       close(num) {
         // this.shows = false;
         this.text = num;
-        console.log('hh',num)
+       
       },
       length() {
         return this.list.length
@@ -92,7 +96,7 @@
       modal
     },
     created() {
-
+      console.log('demo',this.$route.query)
     },
     computed: {
       lengths(){

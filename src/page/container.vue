@@ -101,9 +101,7 @@
   </div>
   <!-- 路由跳转 -->
   <div class="container-main" :class="{isActive:isCollapse}">
-    <keep-alive>
      <router-view></router-view>
-    </keep-alive> 
   </div>
 
  </div> 
