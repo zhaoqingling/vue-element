@@ -100,9 +100,9 @@
       }
     },
     watch: {
-      $route(to){
-        alert('你怎么走了。。')
-      }
+      // $route(to){
+      //   alert('你怎么走了。。')
+      // }
     }
   }
 </script>

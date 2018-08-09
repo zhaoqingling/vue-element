@@ -60,7 +60,6 @@
       :collapse="isCollapse"
       background-color="#20222a"
       text-color="#fff"
-      active-text-color="#409EFF"
       :unique-opened="unique"
       >
       <!-- <el-submenu index="">
@@ -163,6 +162,7 @@
  } 
 </script>
 <style lang="scss" scoped>
+@import '../style/primary.scss';
 
 /* 滚动条样式 */
 ::-webkit-scrollbar {
@@ -262,7 +262,7 @@ a{
             cursor: pointer;
             border-bottom: 5px solid #20222a;
             &:hover {
-              border-bottom: 5px solid #409eff;
+              border-bottom: 5px solid $color;
             }
           }
         }
