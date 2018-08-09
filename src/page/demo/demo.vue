@@ -30,6 +30,9 @@
       <p>{{text}}</p>
     </div>
     <modal @has-close="close" ref="modal"></modal>
+    <div>
+      <p>list的长度{{lengths}}</p>
+    </div>
   </div>
 </template>
 <script>
@@ -50,6 +53,10 @@
           {
             name: '234',
             id: '2'
+          },
+          {
+            name: '345',
+            id: '3'
           },
           {
             name: '345',
@@ -76,10 +83,26 @@
         // this.shows = false;
         this.text = num;
         console.log('hh',num)
+      },
+      length() {
+        return this.list.length
       }
     },
     components: {
       modal
+    },
+    created() {
+
+    },
+    computed: {
+      lengths(){
+        return this.list.length
+      }
+    },
+    watch: {
+      $route(to){
+        alert('你怎么走了。。')
+      }
     }
   }
 </script>
