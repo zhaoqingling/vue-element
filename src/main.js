@@ -10,6 +10,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import './style/base.scss'
 import '../static/font/iconfont.css'
+import _ from 'lodash'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
@@ -21,5 +22,12 @@ new Vue({
   router,
   store,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  watch:{
+    $route(to,from){
+      // to , from 分别表示从哪跳转到哪，都是一个对象
+      // to.path  ( 表示的是要跳转到的路由的地址 eg: /home );
+     // console.log(to,from)
+    }
+  }
 })

@@ -36,6 +36,9 @@
     <div>
       {{info}}
     </div>
+    <p>
+      <img src="/static/image/logo.png" />
+    </p>
   </div>
 </template>
 <script>
@@ -43,6 +46,7 @@
   export default {
     data(){
       return {
+        src: require('../../../static/image/logo.png'),
         info: this.$route.query,
         demoId: 'temp-id',
         show: {
@@ -96,17 +100,24 @@
       modal
     },
     created() {
-      console.log('demo',this.$route.query)
+      // console.log('demo',this.$route.query)
+      _.forEach(this.list,function(item,index){
+        console.log(index,item.id)
+      })
+
+      this.list.forEach((item,index)=>{
+        console.log(index,item.name)
+      })
+
+      // obj assign 方法用于对象的合并
+      let obj1 = {a:2, b:3}, obj2 = {c:4, b:5};
+      let obj = Object.assign({}, obj1, obj2);
+      console.log('12',obj)
     },
     computed: {
       lengths(){
         return this.list.length
       }
-    },
-    watch: {
-      // $route(to){
-      //   alert('你怎么走了。。')
-      // }
     }
   }
 </script>

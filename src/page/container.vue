@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div class="container-contain">
   <div class="container-header">
     <div class="header">
       <!-- logo 图标 -->
@@ -101,9 +101,8 @@
   </div>
   <!-- 路由跳转 -->
   <div class="container-main" :class="{isActive:isCollapse}">
-     <router-view></router-view>
+    <div class="main-box"> <router-view></router-view></div>
   </div>
-
  </div> 
 </template>
 <script>
@@ -156,37 +155,20 @@
     // 设置sidebar 高度，撑满左侧
     let height = $(window).height()-50;
     $('#container-sidebar').height(height);
+    $('.main-box').height(height-50);
   }
  } 
 </script>
 <style lang="scss" scoped>
 @import '../style/primary.scss';
-
-/* 滚动条样式 */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-  border:2px solid #C0C1C6;
-  background-color: #C0C1C6;
-  box-sizing: content-box;
-}
-/*定义滚动条轨道 内阴影+圆角*/
-::-webkit-scrollbar-track {
-  border:2px solid #E8E9EB;
-  width: 10px;
-  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
-  background: #E8E9EB;
-}
-/*定义滑块 内阴影+圆角*/
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3); */
-  background-color: #C0C1C6;
-}
-::-webkit-scrollbar-thumb:hover {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  background-color: #7d7d7d;
+.container-contain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background: #f4f8f9;
 }
 
 .el-menu-vertical-demo:not(.el-menu--collapse) {
@@ -198,6 +180,10 @@ a{
   text-decoration: none;
 }
 .container-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   .header {
     width: 100%;
     height: 50px;
@@ -321,13 +307,21 @@ a{
   overflow-x: hidden;
 }
 .container-main {
-  padding-left:220px;
-  margin:15px 15px 0 0;
+  padding:15px 15px 0;
+  margin: 50px 0 0 200px;
   transition: all 0.4s ease;
   -webkit-transition: all 0.4s ease;
+  height: 100%;
+  overflow: hidden;
+  .main-box{
+    background: #fff;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px 15px 10px;
+  }
 }
 
 .container-main.isActive {
-  padding-left: 84px;
+  margin-left: 64px;
 }
 </style>

@@ -33,7 +33,7 @@ export default {
     }
   },
   created() {
-    console.log('list')
+    
   }
 }  
 </script>
