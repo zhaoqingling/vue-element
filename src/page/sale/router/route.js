@@ -1,9 +1,12 @@
+const sale = r => require.ensure([], () => r(require('../list.vue')), 'sale')
 
-import sale from '../list.vue'
-
-export default {
+const routes = [
+  {
     name: 'sale',
-    path: '/sale',
+    path: 'sale',
     meta: { breadName: '销售', title: '销售查询'},
     component: sale
-}
+  }
+]
+
+export default routes
