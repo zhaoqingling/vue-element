@@ -13,7 +13,6 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'container',
       component: container,
       children:[
         {
