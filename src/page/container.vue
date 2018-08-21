@@ -82,12 +82,12 @@
       </el-menu-item> -->
       <template v-for="(item,index) in menuData">
         <el-menu-item v-if="!item.children" :index="item.path">
-          <i class="el-icon-setting"></i>
+          <i class="iconfont" :class="item.icon"></i>
           <span slot="title">{{item.name}}</span>
         </el-menu-item>
         <el-submenu :index="`${index}`" v-else>
           <template slot="title">
-            <i class="el-icon-location"></i>
+            <i class="iconfont" :class="item.icon"></i>
             <span slot="title">{{item.name}}</span>
           </template>
           <el-menu-item-group>
@@ -116,6 +116,7 @@
         {
           name:'导航一',
           path: '',
+          icon: 'icon-global',
           children:[
             {
               name:'选项1',
@@ -125,15 +126,18 @@
         },
         {
           name:'导航二',
-          path: '/sale'
+          path: '/sale',
+          icon: 'icon-wendang1'
         },
         {
           name:'导航四',
-          path: '/manage'
+          path: '/manage',
+          icon: 'icon-zhishiku'
         },
         {
           name: 'demo',
-          path: '/demo'
+          path: '/demo',
+          icon: 'icon-kehufenqun'
         }
       ]
     }
@@ -241,8 +245,8 @@ a{
           float: left;
           p {
             padding:0 20px;
-            height:45px;
-            line-height:48px;
+            height: 50px;
+            line-height:50px;
             cursor: pointer;
             border-bottom: 5px solid #20222a;
             &:hover {
@@ -323,5 +327,10 @@ a{
 
 .container-main.isActive {
   margin-left: 64px;
+}
+
+.el-menu-item i.iconfont ,.el-submenu__title i.iconfont{
+  font-size: 20px;
+  margin-right: 8px;
 }
 </style>

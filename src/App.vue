@@ -24,6 +24,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #615f5f;
   font-size: 14px;
+  height: 100%;
+  background: #f4f8f9;
 }
 section,article,aside,header,footer,nav,figure{display:block;}
 body,h1,h2,h3,h4,h5,h6,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td,figure{margin:0;padding:0;}

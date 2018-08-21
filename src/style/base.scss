@@ -15,7 +15,9 @@ html{
 input::-webkit-input-placeholder{
   font-family: 'Microsoft YaHei'!important;
 }
-
+*, *::before, *::after{
+  box-sizing: border-box;
+}
 button {
   font-family: 'Microsoft YaHei'!important;
 }
@@ -51,6 +53,12 @@ button {
 .el-submenu .el-menu-item {
   height: 40px;
   line-height: 40px;
+}
+
+.login-wrapper {
+  .el-input__inner {
+   padding-left: 40px;
+  }
 }
 
 

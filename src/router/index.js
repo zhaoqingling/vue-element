@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import login from '../page/login/login'
 import container from '../page/container'
 import index from '../page/index'
 import sale from '../page/sale/router/route'
@@ -24,6 +25,11 @@ export default new Router({
         ...manage,
         ...demo
       ]
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
     }
   ]
 })
