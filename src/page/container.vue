@@ -47,7 +47,7 @@
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>基本资料</el-dropdown-item>
             <el-dropdown-item>修改密码</el-dropdown-item>
-            <el-dropdown-item divided>退出</el-dropdown-item>
+            <el-dropdown-item divided @click.native="doLogout">退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -106,6 +106,7 @@
  </div> 
 </template>
 <script>
+ import { mapMutations,mapGetters, mapState} from 'vuex'
  export default {
   data(){
     return {
@@ -146,6 +147,9 @@
    
   },
   methods:{
+    ...mapMutations({
+        intoLogin:'intoLogin'
+    }),
     /*刷新*/
     fresh() {
       window.location.reload();
@@ -154,6 +158,15 @@
     /*折叠效果*/
     panelCollapse() {
       this.isCollapse = !this.isCollapse;
+    },
+    // 退出
+    doLogout() {
+      let logout = {
+        pass: '',
+        userName: ''
+      };
+      this.intoLogin(logout);
+      this.$router.push('/login');
     }
   },
   mounted() {
