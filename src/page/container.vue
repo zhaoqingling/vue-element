@@ -149,6 +149,7 @@
     /*刷新*/
     fresh() {
       window.location.reload();
+      // this.$router.push('/');
     },
     /*折叠效果*/
     panelCollapse() {
@@ -158,7 +159,6 @@
   mounted() {
     // 设置sidebar 高度，撑满左侧
     let height = $(window).height()-50;
-    $('#container-sidebar').height(height);
     $('.main-box').height(height-50);
   }
  } 
@@ -303,12 +303,14 @@ a{
   left: 0;
   overflow-y: auto;
   overflow-x: hidden;
+  height: 100%;
 }
 
 .container-sidebar>ul {
   padding-top: 5px;
   overflow-y: auto;
   overflow-x: hidden;
+  height: 100%;
 }
 .container-main {
   padding:15px 15px 0;

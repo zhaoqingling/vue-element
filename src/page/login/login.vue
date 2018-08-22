@@ -20,6 +20,7 @@
 </div>  
 </template>
 <script>
+import { mapMutations,mapGetters, mapState} from 'vuex'
 export default {
   data(){
     var checkAge = (rule, value, callback) => {
@@ -52,12 +53,17 @@ export default {
     }
   },
   methods:{
+    ...mapMutations({
+        intoLogin:'intoLogin'
+    }),
      submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
+            // 存入store
+            this.intoLogin(this.ruleForm2);
+            this.$router.push('/');
           } else {
-            console.log('error submit!!');
+            // console.log('error submit!!');
             return false;
           }
         });

@@ -1,6 +1,7 @@
 <template>
  <div>
    <p>首页</p>
+   <p><span>登录人</span>:{{username}}</p>
    <p><span>sale 里的store数据</span>:{{num}}</p>
    <el-row>
     <el-button type="primary" size="small" @click="testDemo">点我改store</el-button>
@@ -25,6 +26,7 @@ import { mapMutations,mapGetters, mapState} from 'vuex'
  export default {
   data() {
     return {
+      username: '',
       num: 0,
       dialogVisible: false
     }
@@ -52,10 +54,14 @@ import { mapMutations,mapGetters, mapState} from 'vuex'
   computed: {
     ...mapState('sale',[
       'list',
+    ]),
+    ...mapState([
+      'login',
     ])
   },
   created() {
-    this.num = this.list
+    this.num = this.list;
+    this.username = this.login.name;
   }
  } 
 </script>

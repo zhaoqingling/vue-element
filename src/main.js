@@ -11,6 +11,7 @@ import axios from 'axios'
 import './style/base.scss'
 import '../static/font/iconfont.css'
 import _ from 'lodash'
+import storage from './common/storage' 
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
@@ -31,3 +32,12 @@ new Vue({
     }
   }
 })
+
+// console.log('session',storage.sessions.get('cmdb-login'));
+// console.log('store-state',store.state)
+
+// 判断是否是登录状态
+if(store.state.login.name == '') {
+  router.push({ path: '/login' })
+} 
+

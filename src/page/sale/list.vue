@@ -1,6 +1,7 @@
 <template>
   <div>
     <p>我是sale  啦啦</p>
+    <p><span>sale 里的store数据</span>:{{num}}</p>
     <el-row>
       <el-button type="primary" size="small" @click="test">点我</el-button>
     </el-row>
@@ -11,7 +12,7 @@ import { mapActions, mapState } from "vuex"
 export default {
   data() {
     return {
-
+      num: 0
     }
   },
   methods: {
@@ -31,8 +32,13 @@ export default {
       // })
     }
   },
+  computed: {
+    ...mapState('sale',[
+      'list',
+    ])
+  },
   created() {
-  
+    this.num = this.list;
   }
 }  
 </script>
