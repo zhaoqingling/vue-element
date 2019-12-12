@@ -1,16 +1,12 @@
 // ajax 请求
-import url from '../../../../static/request'
 import $http from 'axios'
-
-let requestUrl = url.domains.dev.baseURL;
-
 export async function testDemo ({commit}, data) {
   let result = {
     code: 0,
-    data: ['xiao','ben']
+    data: []
   }
   // 拼接请求url
-  let url = requestUrl+'/bigdata/qos';
+  let url = '/bigdata/qos';
   await(
     // $http.post(url, data).then(res=>{
     
@@ -18,11 +14,14 @@ export async function testDemo ({commit}, data) {
     //   result.data.push('ben')
     // })
     $http.get(url).then(res=>{
-
+      
+      console.log('000',res);
+      alert(123)
     }).catch(res=>{
 
     })
   )
+  console.log('123',result)
   return result;
 }
 // $http.get('/user?Id=12345').then(res=>{

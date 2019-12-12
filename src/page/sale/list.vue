@@ -3,7 +3,7 @@
     <p>我是sale  啦啦</p>
     <p><span>sale 里的store数据</span>:{{num}}</p>
     <el-row>
-      <el-button type="primary" size="small" @click="test">点我</el-button>
+      <el-button type="primary" size="small" @click="test">点击请求</el-button>
     </el-row>
   </div>
 </template>
