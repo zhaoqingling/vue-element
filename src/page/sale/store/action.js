@@ -10,12 +10,17 @@ export async function testDemo ({commit}, data) {
     data: ['xiao','ben']
   }
   // 拼接请求url
-  let url =requestUrl + '/api/cmdb/overview/groupCards';
+  let url = requestUrl+'/bigdata/qos';
   await(
-    $http.post(url, data).then(res=>{
+    // $http.post(url, data).then(res=>{
     
+    // }).catch(res=>{
+    //   result.data.push('ben')
+    // })
+    $http.get(url).then(res=>{
+
     }).catch(res=>{
-      result.data.push('ben')
+
     })
   )
   return result;

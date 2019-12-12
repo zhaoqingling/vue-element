@@ -10,7 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+        '/':{//配置代理地址，前端请求的所有接口都需要带的前缀
+　　　　　　　　target:'http://localhost:9000',
+　　　　　　　　changeOrigin:true,//是否进行跨域
+　　　　　　　　secure: false,
+　　　　　　　　pathRewrite:{//我使用了 nginx 作为反向代理，所以，需要把前缀替换为nginx 配置中的代理路径
+　　　　　　　　　　'^/':'/e',//服务器请求地址中，若没有/api ，则替换为 /
+　　　　　　　　}
+　　　　　　}
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
