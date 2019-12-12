@@ -55,6 +55,7 @@
   </div>
   <!-- 菜单 -->
   <div class="container-sidebar" id="container-sidebar">
+    <div class="container-sidebar-scroll">
     <el-menu :default-active="this.$route.path" class="el-menu-vertical-demo"
       router 
       :collapse="isCollapse"
@@ -98,10 +99,13 @@
         </el-submenu>
       </template>
     </el-menu>
+    </div>
   </div>
   <!-- 路由跳转 -->
   <div class="container-main" :class="{isActive:isCollapse}">
-    <div class="main-box"> <router-view></router-view></div>
+    <div class="main-body">
+      <div class="main-box" id="main-box"> <router-view></router-view></div>
+    </div>
   </div>
  </div> 
 </template>
@@ -140,6 +144,7 @@
           path: '/demo',
           icon: 'icon-kehufenqun'
         }
+       
       ]
     }
   },
@@ -170,9 +175,8 @@
     }
   },
   mounted() {
-    // 设置sidebar 高度，撑满左侧
-    let height = $(window).height()-50;
-    $('.main-box').height(height-50);
+    // 设置主内容区域 高度
+    document.getElementById('main-box').style.height = (document.body.clientHeight-100)+'px';
   }
  } 
 </script>
@@ -190,7 +194,7 @@
 
 .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
-    min-height: 400px;
+    height:100%;
   }
 a{
   color: #fff;
@@ -310,19 +314,30 @@ a{
   }
 }
 .container-sidebar {
-  background: #20222a;
+  width:200px;
   position: fixed;
   top: 50px;
   left: 0;
-  overflow-y: auto;
+  bottom:0;
   overflow-x: hidden;
+  z-index:9999;
   height: 100%;
 }
 
+.container-sidebar-scroll{
+  width: 220px;
+  position:relative;
+  height:100%;
+  overflow-x:hidden;
+}
+
 .container-sidebar>ul {
+  width:200px;
+  position:relative;
   padding-top: 5px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  // overflow-x: hidden;
+  font-size:0;
+  box-sizing:border-box;
   height: 100%;
 }
 .container-main {
@@ -332,14 +347,19 @@ a{
   -webkit-transition: all 0.4s ease;
   height: 100%;
   overflow: hidden;
-  .main-box{
+  .main-body {
     background: #fff;
+    padding: 10px 8px 10px 10px;
+  }
+  .main-box{
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 10px 15px 10px;
   }
+  
 }
-
+.el-menu--collapse {
+  height:100%;
+}
 .container-main.isActive {
   margin-left: 64px;
 }
