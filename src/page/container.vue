@@ -144,7 +144,6 @@
           path: '/demo',
           icon: 'icon-kehufenqun'
         }
-       
       ]
     }
   },
@@ -320,7 +319,7 @@ a{
   left: 0;
   bottom:0;
   overflow-x: hidden;
-  z-index:9999;
+  z-index:100;
   height: 100%;
 }
 
