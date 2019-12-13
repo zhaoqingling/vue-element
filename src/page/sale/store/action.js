@@ -14,18 +14,11 @@ export async function testDemo ({commit}, data) {
     //   result.data.push('ben')
     // })
     $http.get(url).then(res=>{
-      
-      console.log('000',res);
-      alert(123)
+      result.data = res.data;
+     
     }).catch(res=>{
-
+      result.code = 1;
     })
   )
-  console.log('123',result)
   return result;
 }
-// $http.get('/user?Id=12345').then(res=>{
-
-// }).catch(res=>{
-
-// })

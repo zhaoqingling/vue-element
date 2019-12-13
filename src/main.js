@@ -32,6 +32,7 @@ new Vue({
       if(store.state.login.name == '') {
         router.push({ path: '/login' })
       } 
+      
     }
   }
 })

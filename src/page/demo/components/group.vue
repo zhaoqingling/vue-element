@@ -19,15 +19,14 @@
 </template>
 <script>
   export default {
-    // props: {
-    //   isShow: {
-    //     type:Boolean,
-    //     default: false
-    //   }
-    // },
+    props: {
+      text: {
+        type:String,
+        default: ''
+      }
+    },
     data(){
       return {
-        text: '',
         isShow: false
       }
     },
@@ -37,7 +36,6 @@
       },
       cancel() {
         this.isShow = false
-        this.$emit('has-close','');
       },
       confrim() {
         this.isShow = false

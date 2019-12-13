@@ -1,6 +1,7 @@
 
 import Vue from 'vue'
 import Vuex from 'vuex'
+import layout from '../page/layout/store'
 import sale from '../page/sale/store'
 import $http from 'axios'
 import storage from '../common/storage'
@@ -32,6 +33,7 @@ const mutations = {
 }
 
 const modules = {
+  layout,
   sale
 }
 

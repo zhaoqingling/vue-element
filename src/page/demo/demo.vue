@@ -29,13 +29,34 @@
       <button @click="showModal">点我调用子组件</button>
       <p>{{text}}</p>
     </div>
-    <modal @has-close="close" ref="modal"></modal>
+    <modal @has-close="close" ref="modal" :text="message"></modal>
     <div>
       <p>list的长度{{lengths}}</p>
     </div>
     <div>
       {{info}}
     </div>
+    <p>
+      <img src="/static/image/logo.png" />
+    </p>
+    <p>
+      <img src="/static/image/logo.png" />
+    </p>
+    <p>
+      <img src="/static/image/logo.png" />
+    </p>
+    <p>
+      <img src="/static/image/logo.png" />
+    </p>
+    <p>
+      <img src="/static/image/logo.png" />
+    </p>
+    <p>
+      <img src="/static/image/logo.png" />
+    </p>
+    <p>
+      <img src="/static/image/logo.png" />
+    </p>
     <p>
       <img src="/static/image/logo.png" />
     </p>
@@ -110,9 +131,9 @@
       })
 
       // obj assign 方法用于对象的合并
-      let obj1 = {a:2, b:3}, obj2 = {c:4, b:5};
+      let obj1 = {a:2, b:3}, obj2 = {c:4, b:5,a:9};
       let obj = Object.assign({}, obj1, obj2);
-      // console.log('12',obj)
+      console.log('12',obj)
     },
     computed: {
       lengths(){

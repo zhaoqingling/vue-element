@@ -5,6 +5,9 @@
     <el-row>
       <el-button type="primary" size="small" @click="test">点击请求</el-button>
     </el-row>
+    <ul>
+      <li v-for="item in data">{{item.name}}</li>
+    </ul>
   </div>
 </template>
 <script>
@@ -12,7 +15,8 @@ import { mapActions, mapState } from "vuex"
 export default {
   data() {
     return {
-      num: 0
+      num: 0,
+      data:[]
     }
   },
   methods: {
@@ -22,7 +26,9 @@ export default {
     async test() {
       let data = {'name':'xiaoming'};
       let result = await this.testDemo(data)
-      console.log('haha',result)
+      if(result.code == 0){
+        this.data = result.data;
+      }
     },
     tests(){
       // this.$http.get('/user?Id=12345').then(res=>{

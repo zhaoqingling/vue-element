@@ -3,9 +3,10 @@ import Router from 'vue-router'
 import login from '../page/login/login'
 import container from '../page/container'
 import index from '../page/index'
+import layout from '../page/layout/router/route'
 import sale from '../page/sale/router/route'
 import manage from '../page/manage/router/route'
-import demo from '../page/demo/router/router'
+import demo from '../page/demo/router/route'
 
 Vue.use(Router)
 
@@ -21,6 +22,7 @@ export default new Router({
           name: 'index',
           component:index
         },
+        ...layout,
         ...sale,
         ...manage,
         ...demo

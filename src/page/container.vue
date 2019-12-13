@@ -119,6 +119,11 @@
       isCollapse: false,
       menuData:[
         {
+          name:'工作台',
+          path:'/layout',
+          icon: 'icon-global',
+        },
+        {
           name:'导航一',
           path: '',
           icon: 'icon-global',
@@ -188,7 +193,7 @@
   right: 0;
   bottom: 0;
   overflow: hidden;
-  background: #f4f8f9;
+  background: #f8f8f8;
 }
 
 .el-menu-vertical-demo:not(.el-menu--collapse) {
@@ -340,7 +345,7 @@ a{
   height: 100%;
 }
 .container-main {
-  padding:15px 15px 0;
+  padding:15px 10px 0;
   margin: 50px 0 0 200px;
   transition: all 0.4s ease;
   -webkit-transition: all 0.4s ease;
