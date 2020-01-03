@@ -29,7 +29,34 @@
                    :h="item.h"
                    :i="item.i"
                    :key="item.i" :minW=4 :minH=2 :static="item.static">
-            {{item.i}}
+            <!-- 放入卡片内容-->
+          <div class="card-top-titles">
+            <div class="card-title">{{item.title}}</div>
+            <div class="card-sub-title">{{item.subtitle}}</div>
+          </div>
+          <!-- 图标 -->
+          <div class="card-icon">
+            <div class="icon-box" v-if="item.static">
+              <!-- 静态不可编辑 -->
+              <el-dropdown trigger="click">
+                <span class="el-dropdown-link">
+                  <span class="icon"><i class="iconfont">&#xe67c;</i></span>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item>刷新数据</el-dropdown-item>
+                  <el-dropdown-item>编辑卡片</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
+            </div>
+            <div class="icon-box" v-else>
+              <!-- 非静态可编辑 -->
+              <span class="icon"><i class="iconfont">&#xe655;</i></span>
+              <span class="icon"><i class="iconfont">&#xe615;</i></span>
+            </div>
+          </div>
+          <div class="card-content" :style="{height:(item.h*85-75)+'px'}">
+            暂无内容
+          </div>
         </grid-item>
     </grid-layout>
   </div>
@@ -37,16 +64,20 @@
 <script>
   import VueGridLayout from 'vue-grid-layout';
   var testLayout = [
-      {"x":0,"y":0,"w":4,"h":2,"i":"0",static:true},
-      {"x":4,"y":0,"w":4,"h":2,"i":"1",static:true},
-      {"x":8,"y":0,"w":4,"h":2,"i":"2",static:true}
+      {"x":0,"y":0,"w":4,"h":2,"i":"0",static:true,title:'我负责的工作项',subtitle:'共0个工作项'},
+      {"x":4,"y":0,"w":4,"h":2,"i":"1",static:true,
+      title:'我关注的工作项',
+      subtitle:'共1个工作项'
+      },
+      {"x":8,"y":0,"w":4,"h":2,"i":"2",static:true,
+      title:'进行中的项目',
+      subtitle:'共0个工作项'
+      }
   ];
   export default {
     data(){
       return {
-      layout:[{"x":0,"y":0,"w":4,"h":2,"i":"0",static:true},
-      {"x":4,"y":0,"w":4,"h":2,"i":"1",static:true},
-      {"x":8,"y":0,"w":4,"h":2,"i":"2",static:true}],
+      layout:testLayout,
         seen:true
       }
     },
@@ -86,7 +117,10 @@
         })
         //保存需要传入的参数
         console.log('save',this.layout);
-      }
+      },
+      heightContent(h){
+        return h*85-50;
+     }
     },
     components: {
       GridLayout: VueGridLayout.GridLayout,
@@ -96,7 +130,6 @@
       
     },
     computed: {
-     
     }
   }
 </script>
@@ -104,12 +137,19 @@
 @import '../../style/primary.scss';
 .layout-wrapper {
   .vue-grid-item {
+    position:relative;
     padding:20px;
     background:#fff;
     border-radius:4px;
     border:1px solid #ebeef5;
     box-shadow:0 2px 12px 0 rgba(0,0,0,.1);
     transition:box-shadow 0.2s ease;
+  }
+  .vue-grid-item:hover{
+    box-shadow:0 12px 10px 0 rgba(31,31,31,0.1), 0 0 2px 0 rgba(31,31,31,0.2);
+  }
+  .vue-grid-item.static{
+    box-shadow:0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
   }
   .layout-tit{
     padding-right:10px;
@@ -151,5 +191,55 @@
     margin:0 20px;
     display:inline-block;
   }
+  //卡片内容部分
+  .card-top-titles{
+    padding-right:50px;
+    .card-title{
+      font-size:14px;
+      color:#303030;
+      font-weight:500;
+      height:22px;
+      line-height:22px;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .card-sub-title{
+      font-size:12px;
+      color:#909090;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+      height:18px;
+      line-height:18px;
+    }
+  }
+  .card-content {
+    padding-top:10px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+  }
+  .icon-box {
+    position:absolute;
+    top:25px;
+    right:15px;
+    z-index:10;
+    cursor:pointer;
+    span.icon{
+      padding:5px 3px;
+      i{
+        color:#303030;
+        font-size:20px;
+        font-weight:bold;
+      }
+      &:hover{
+        i{
+          color:$color;
+        }
+      }
+    }
+  }
+
 }  
 </style>
