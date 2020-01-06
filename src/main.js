@@ -11,7 +11,7 @@ import axios from 'axios'
 import './style/base.scss'
 import '../static/font/iconfont.css'
 import _ from 'lodash'
-import storage from './common/storage' 
+import storage from './utils/storage' 
 import api from './api'
 
 Vue.config.productionTip = false

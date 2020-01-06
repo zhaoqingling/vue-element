@@ -2,7 +2,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import $http from 'axios'
-import storage from '../common/storage'
+import storage from '../utils/storage'
 
 Vue.use(Vuex)
 

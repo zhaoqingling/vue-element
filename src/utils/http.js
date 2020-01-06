@@ -4,7 +4,7 @@ import QS from 'qs'    // 引入qs模块，用来序列化post类型的数据
 import { MessageBox, Message } from 'element-ui'
 import store from '../store/store'
 import router from '../router'
-import storage from '../common/storage'
+import storage from './storage'
 /** 
  * 提示函数 
  * 禁止点击蒙层、显示一秒后关闭
@@ -62,7 +62,7 @@ const errorHandle = (status, other) => {
 }}
 
 // 创建axios实例
-var instance = axios.create({    timeout: 1000 * 12});
+var instance = axios.create({ timeout: 1000 * 12});
 // 设置post请求头
 instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 /** 
