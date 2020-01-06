@@ -3,7 +3,7 @@
     <p>我是sale  啦啦</p>
     <p><span>sale 里的store数据</span>:{{num}}</p>
     <el-row>
-      <el-button type="primary" size="small" @click="test">点击请求</el-button>
+      <el-button type="primary" size="small" @click="onload">点击请求</el-button>
     </el-row>
     <ul>
       <li v-for="item in data">{{item.name}}</li>
@@ -11,7 +11,6 @@
   </div>
 </template>
 <script>
-import { mapActions, mapState } from "vuex"
 export default {
   data() {
     return {
@@ -20,28 +19,16 @@ export default {
     }
   },
   methods: {
-    ...mapActions("sale", {
-      testDemo: "testDemo"
-    }),
-    async test() {
-      let data = {'name':'xiaoming'};
-      let result = await this.testDemo(data)
-      if(result.code == 0){
-        this.data = result.data;
-      }
-    },
-    tests(){
-      // this.$http.get('/user?Id=12345').then(res=>{
-
-      // }).catch(res=>{
-
-      // })
+    onload(){
+      this.$http.article.testAxios().then(res=> {
+            // 执行某些操作      
+            console.log('12',res)
+        })  
     }
+
   },
   computed: {
-    ...mapState('sale',[
-      'list',
-    ])
+  
   },
   created() {
     this.num = this.list;

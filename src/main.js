@@ -12,10 +12,12 @@ import './style/base.scss'
 import '../static/font/iconfont.css'
 import _ from 'lodash'
 import storage from './common/storage' 
+import api from './api'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
-Vue.prototype.$http = axios
+// Vue.prototype.$http = axios
+Vue.prototype.$http = api
 
 /* eslint-disable no-new */
 new Vue({

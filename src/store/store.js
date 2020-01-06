@@ -1,8 +1,6 @@
 
 import Vue from 'vue'
 import Vuex from 'vuex'
-import layout from '../page/layout/store'
-import sale from '../page/sale/store'
 import $http from 'axios'
 import storage from '../common/storage'
 
@@ -13,28 +11,22 @@ const state = {
     name: storage.sessions.get('cmdb-login')? storage.sessions.get('cmdb-login').name : '',
     password: storage.sessions.get('cmdb-login')? storage.sessions.get('cmdb-login').password : ''
   },
-  pjtnews: 0,
-  count: 18
+  token:'x-token'
 }
  
 const mutations = {
+  // 请求接口之后再掉这个方法，token也要传入
   intoLogin(state,payload){
     state.login.name = payload.userName;
     state.login.password = payload.pass;
     // 将状态存储到sessionStorage中
     storage.sessions.set('cmdb-login',state.login);
-  },
-  add(state,payload) {
-    state.count += payload;
-  },
-  reduce(state,payload) {
-    state.count -= payload;
   }
+  //还要有退出的方法
 }
 
 const modules = {
-  layout,
-  sale
+
 }
 
 export default new Vuex.Store({

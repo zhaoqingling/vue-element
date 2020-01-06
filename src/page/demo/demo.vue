@@ -61,6 +61,7 @@
       <img src="/static/image/logo.png" />
     </p>
   </div>
+  <!-- <iframe src="http://www.baidu.com" width="100%" height="550" frameborder="0"></iframe> -->
 </template>
 <script>
   import modal from './components/group.vue'
